@@ -17,13 +17,13 @@
 
 <script>
 export default {
-  name: "nav",
+  name: "navigation",
   data () {
     return {
       navList: [
         {"首页": "../index/index.html"},
-        {"心理设备": "../about/index.html"},
-        {"关于": "../mental_equip/index.html"},
+        {"心理设备": "../mental_equip/index.html"},
+        {"关于": "../mental_about/index.html"},
       ],
       listStyleObj: {
         "height": "auto",

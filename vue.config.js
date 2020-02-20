@@ -25,9 +25,9 @@ module.exports = {
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     },
     mental_about: {
-      entry: 'src/about/index.js',
-      template: 'public/about.html',
-      filename: 'about.html',
+      entry: 'src/mental_about/index.js',
+      template: 'public/mental_about.html',
+      filename: 'mental_about.html',
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     },
     mental_equip: {
