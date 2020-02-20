@@ -11,5 +11,3 @@ new Vue({
   router,
   render: h => h(Nav)
 }).$mount('#nav')
-
-

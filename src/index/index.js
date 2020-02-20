@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Nav from '../components/nav'
-import App from '../components/HelloWorld'
 import router from '../router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -10,5 +9,3 @@ new Vue({
   router,
   render: h => h(Nav)
 }).$mount('#nav')
-
-
