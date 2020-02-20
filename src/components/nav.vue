@@ -1,7 +1,11 @@
 <template>
   <div id="nav">
       <ul>
-        <li style="padding:.8% 0 0 10%;margin-right:10%;"><img src="../assets/img/python.jpg" width="80" /></li>
+        <li style="padding:.8% 0 0 10%;margin-right:10%;">
+          <a id="img" href="../index/index.html">
+             <img src="../assets/img/python.jpg" width="80" />
+          </a>
+        </li>
         <li v-for="item in navList">
           <template v-for="site,name in item">
             <a :href="site">{{ name }}</a>
@@ -13,6 +17,7 @@
 
 <script>
 export default {
+  name: "nav",
   data () {
     return {
       navList: [
@@ -50,7 +55,7 @@ export default {
   float: left;
   overflow: hidden;
 }
-  a {
+  a:not(#img) {
   text-decoration: none;
   display: block;
   padding: 2em 1.5em;
@@ -59,7 +64,7 @@ export default {
   color: black;
   border-radius: 20px;
 }
-  a:hover {
+  a:not(#img):hover {
   background-color: orange;
   color: white;
 }
