@@ -15,7 +15,7 @@ module.exports = {
   pages: {
     index: {
       // page 的入口
-      entry: 'src/index/index.js',
+      entry: 'src/main.js',
       // 模板来源
       template: 'public/index.html',
       // 在 dist/index.html 的输出
@@ -24,6 +24,7 @@ module.exports = {
       // 提取出来的通用 chunk 和 vendor chunk。
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     },
+    /*
     mental_about: {
       entry: 'src/mental_about/index.js',
       template: 'public/mental_about.html',
@@ -36,8 +37,9 @@ module.exports = {
       filename: 'mental_equip.html',
       chunks: ['chunk-vendors', 'chunk-common', 'index']
     }
+     */
   },
-
+  //ESLint
   lintOnSave: true,
 
   devServer: {
@@ -71,5 +73,14 @@ module.exports = {
       preProcessor: 'scss',
       patterns: []
     }
-  }
+  },
+
+  configureWebpack: {
+    resolve: {
+      alias: {
+        // 启用 runtime 模式
+        vue$: "vue/dist/vue.esm.js",
+      }
+    }
+  },
 }

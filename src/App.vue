@@ -1,31 +1,110 @@
 <template>
-  <div id="app">
-    <div id="na">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <!--导航栏-->
+  <div id="myheader">
+    <div id="nav">
+        <ul>
+          <li style="padding:.8% 0 0 10%;margin-right:10%;">
+            <router-link id="img" to="/">
+               <img src="./assets/img/python.jpg" width="80" />
+            </router-link>
+          </li>
+          <li v-for="item in navList">
+            <template v-for="site,name in item">
+              <router-link :to="site">{{ name }}</router-link>
+            </template>
+          </li>
+        </ul>
     </div>
+    <div id="carousel">
+      <el-carousel :interval="4000" arrow="always" height="500px">
+        <el-carousel-item v-for="img in carouImg">
+           <router-link :to="img['link']" class="carousel_link">
+              <img :src="img['url']" class="image" />
+          </router-link>
+        </el-carousel-item>
+      </el-carousel>
+  </div>
+
+  <!--主体-->
+  <div id="App">
+    <router-view></router-view>
+    <router-view name="about"></router-view>
+    <router-view name="equip"></router-view>
+  </div>
+
+
+  <!--页脚-->
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  name: "App",
+  data () {
+    return {
+      navList: [
+        {"首页": '/'},
+        {"心理设备": '/mental_equip'},
+        {"关于": '/about'},
+      ],
+      listStyleObj: {
+        "height": "auto",
+        "padding": 0,
+      },
+      archStyleObj: {
+        "text-decoration": "none",
+        "font-size": "1.4em",
+        "padding": "1.5em 1.2em",
+      },
+      activeIndex: '1',
+      activeIndex2: '1',
+      count: 0,
+      carouImg: [
+        {"url": require("./assets/img/python.jpg"), "link": "/"},
+        {"url": require("./assets/img/python.jpg"), "link": "/"},
+        {"url": require("./assets/img/python.jpg"), "link": "/"},
+        {"url": require("./assets/img/python.jpg"), "link": "/"},
+        {"url": require("./assets/img/python.jpg"), "link": "/"},
+      ],
+    }
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
+<style scoped>
+  #nav {
+  margin-bottom: 3%;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  li {
+  float: left;
+  overflow: hidden;
+}
+  a:not(#img) {
+  text-decoration: none;
+  display: block;
+  padding: 2em 1.5em;
+  font-size: 1.2em;
+  transition: all .5s;
+  color: black;
+  border-radius: 20px;
+}
+  a:not(#img):not(.carousel_link):hover {
+  background-color: orange;
+  color: white;
+}
+  .image {
+  width: 100%;
+  height: 500px;
 }
 </style>
+
+
+
