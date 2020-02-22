@@ -8,17 +8,26 @@ const routes = [
   {
     path: '/',
     //component: () => import('../App'),
+    meta: {
+      index: 1,
+    },
     components: {
     }
   },
   {
     path: '/about',
+    meta: {
+      index: 2,
+    },
     components:{
       about: about,
     },
   },
   {
     path: '/mental_equip',
+    meta: {
+      index: 3,
+    },
     components:{
       equip: equip,
     },

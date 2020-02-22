@@ -1,108 +1,72 @@
 <template>
-  <!--导航栏-->
-  <div id="myheader">
-    <div id="nav">
-        <ul>
-          <li style="padding:.8% 0 0 10%;margin-right:10%;">
-            <router-link id="img" to="/">
-               <img src="./assets/img/python.jpg" width="80" />
-            </router-link>
-          </li>
-          <li v-for="item in navList">
-            <template v-for="site,name in item">
-              <router-link :to="site">{{ name }}</router-link>
-            </template>
-          </li>
-        </ul>
-    </div>
-    <div id="carousel">
-      <el-carousel :interval="4000" arrow="always" height="500px">
-        <el-carousel-item v-for="img in carouImg">
-           <router-link :to="img['link']" class="carousel_link">
-              <img :src="img['url']" class="image" />
-          </router-link>
-        </el-carousel-item>
-      </el-carousel>
-  </div>
-
-  <!--主体-->
   <div id="App">
-    <router-view></router-view>
-    <router-view name="about"></router-view>
-    <router-view name="equip"></router-view>
-  </div>
+  <!--导航栏及轮播图-->
+   <pageHead id="head"></pageHead>
+
+   <!--主体-->
+    <div id="app">
+      <router-view></router-view>
+      <transition :name="transitionName">
+        <router-view name="about"></router-view>
+        <router-view name="equip"></router-view>
+      </transition>
+    </div>
 
 
   <!--页脚-->
+
   </div>
 </template>
 
 <script>
-export default {
-  name: "App",
-  data () {
+ import pageHead from './components/Header'
+ export default {
+  name: "app",
+  data(){
     return {
-      navList: [
-        {"首页": '/'},
-        {"心理设备": '/mental_equip'},
-        {"关于": '/about'},
-      ],
-      listStyleObj: {
-        "height": "auto",
-        "padding": 0,
-      },
-      archStyleObj: {
-        "text-decoration": "none",
-        "font-size": "1.4em",
-        "padding": "1.5em 1.2em",
-      },
-      activeIndex: '1',
-      activeIndex2: '1',
-      count: 0,
-      carouImg: [
-        {"url": require("./assets/img/python.jpg"), "link": "/"},
-        {"url": require("./assets/img/python.jpg"), "link": "/"},
-        {"url": require("./assets/img/python.jpg"), "link": "/"},
-        {"url": require("./assets/img/python.jpg"), "link": "/"},
-        {"url": require("./assets/img/python.jpg"), "link": "/"},
-      ],
+      transitionName: "",
     }
-  }
-}
+  },
+  components: {
+    pageHead,
+  },
+  watch: {
+    $route(to, from) {
+      if(to.meta.index > from.meta.index){
+        this.transitionName = "slide-left";
+      } else if (to.meta.index < from.meta.index) {
+        this.transitionName = "slide-right";
+      }
+    },
+  },
+ }
 </script>
 
 <style scoped>
-  #nav {
-  margin-bottom: 3%;
+
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  will-change: transform;
+  transition: all 500ms;
+  position: absolute;
 }
-  ul {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  width: 100%;
-  background-color: white;
-  overflow: hidden;
+.slide-right-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
-  li {
-  float: left;
-  overflow: hidden;
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
 }
-  a:not(#img) {
-  text-decoration: none;
-  display: block;
-  padding: 2em 1.5em;
-  font-size: 1.2em;
-  transition: all .5s;
-  color: black;
-  border-radius: 20px;
+.slide-left-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
 }
-  a:not(#img):not(.carousel_link):hover {
-  background-color: orange;
-  color: white;
-}
-  .image {
-  width: 100%;
-  height: 500px;
+.slide-left-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
 }
 </style>
 
