@@ -1,18 +1,16 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 //引入Element-ui 组件
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-
-//引入项目头部内容(根)组件
+//引入根组件
 import App from './App'
-
+//引入路由配置
 import router from './router/index'
 
 Vue.config.productionTip = false
 //使用Element UI组件
 Vue.use(ElementUI)
-Vue.use(VueRouter)
+//挂载
 new Vue({
   // //定义Vue绑定的根元素
   // el: "#App",

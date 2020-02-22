@@ -1,11 +1,10 @@
 <template>
   <div id="App">
-  <!--导航栏及轮播图-->
-   <pageHead id="head"></pageHead>
+    <!--导航栏及轮播图-->
+    <pageHead id="head"></pageHead>
 
-   <!--主体-->
+    <!--主体-->
     <div id="app">
-      <router-view></router-view>
       <transition :name="transitionName">
         <router-view name="about"></router-view>
         <router-view name="equip"></router-view>

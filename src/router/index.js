@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+//导入 about 组件
 import about from '../views/About'
+//导入 equip 组件
 import equip from '../components/equip'
 Vue.use(VueRouter)
 //定义路由表
