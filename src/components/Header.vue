@@ -64,8 +64,14 @@ export default {
 
 <style scoped>
   #nav {
-  margin-bottom: 3%;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  transition: box-shadow .5s;
 }
+  #nav:hover {
+    box-shadow: rgb(198, 198, 198) 0px 0px 20px;
+  }
   ul {
   padding: 0;
   margin: 0;
@@ -95,4 +101,7 @@ export default {
   width: 100%;
   height: 500px;
 }
+  #carousel {
+    padding-top: 12%;
+  }
 </style>

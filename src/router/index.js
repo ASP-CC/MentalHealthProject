@@ -3,33 +3,26 @@ import VueRouter from 'vue-router'
 //导入 about 组件
 import about from '../views/About'
 //导入 equip 组件
-import equip from '../components/equip'
+import equip from '../components/mentalEquip'
 Vue.use(VueRouter)
 //定义路由表
 const routes = [
   {
     path: '/',
     //component: () => import('../App'),
-    meta: {
-      index: 1,
-    },
-    components: {
-    }
+    meta: { index: 1, },
+    components: {}
   },
   {
     path: '/about',
-    meta: {
-      index: 2,
-    },
+    meta: { index: 2, },
     components:{
       about: about,
     },
   },
   {
     path: '/mental_equip',
-    meta: {
-      index: 3,
-    },
+    meta: { index: 3, },
     components:{
       equip: equip,
     },
