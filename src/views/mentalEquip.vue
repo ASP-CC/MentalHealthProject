@@ -5,13 +5,14 @@
 </template>
 
 <script>
-import equip from './equip'
+import equip from '../components/equip_module'
 export default {
     components:{
         equip,
     },
     data(){
         return {
+            //equip组件数据
             static: {
                 //是否采用圆角边框
                 isRound: true,
@@ -33,7 +34,12 @@ export default {
                     seriName: "心理沙盘系列",
                     imgSrc: require("../assets/img/python.jpg"),
                     linkAdd: "/",
-                    }
+                    },
+                    {
+                    seriName: "心理沙盘系列",
+                    imgSrc: require("../assets/img/python.jpg"),
+                    linkAdd: "/",
+                    },
                 ],
             },
         };

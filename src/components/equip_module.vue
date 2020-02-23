@@ -77,7 +77,8 @@ p.itemEng {
 .equip_content {
   display: flex;
   align-items: center;
-  padding: 3%;
+  padding: 5% 10% 10%;
+  flex-wrap: wrap;
 }
 .round {
   border-radius: 20px;
@@ -116,11 +117,15 @@ p.itemEng {
   transform: translateX(-50%);
   left: 50%;
   transition: all .8s;
+  box-shadow: 0px 5px 5px grey;
+  transition: all .5s;
 }
-.content > a:hover {
-  color: orange;
-  background-color: transparent;
+.content > a:not(.imgLink):hover {
+  background-color: rgb(252, 123, 3);
+  box-shadow: 0px 40px 10px grey;
+  bottom: 12%;
 }
+
 
 
 </style>

@@ -1,8 +1,9 @@
 <template>
   <div id="App">
     <!--导航栏及轮播图-->
-    <pageHead id="head"></pageHead>
-
+    <pageHead id="head" :navList=navList></pageHead>
+    <carousel id="carousel"></carousel>
+    <router-view></router-view>
     <!--主体-->
     <div id="app">
       <transition :name="transitionName">
@@ -19,15 +20,23 @@
 
 <script>
  import pageHead from './components/Header'
+ import carousel from './components/carousel'
  export default {
   name: "app",
   data(){
     return {
       transitionName: "",
+      //Header组件数据
+      navList: [
+        {"首页": '/'},
+        {"心理设备": '/mental_equip'},
+        {"关于": '/about'},
+      ],
     }
   },
   components: {
     pageHead,
+    carousel,
   },
   watch: {
     $route(to, from) {

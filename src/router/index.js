@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 //导入 about 组件
-import about from '../views/About'
+import about from '../views/about'
 //导入 equip 组件
-import equip from '../components/mentalEquip'
+import equip from '../views/mentalEquip'
+
 Vue.use(VueRouter)
 //定义路由表
 const routes = [
@@ -11,20 +12,22 @@ const routes = [
     path: '/',
     //component: () => import('../App'),
     meta: { index: 1, },
-    components: {}
+    components: {
+      default: equip,
+    }
   },
   {
     path: '/about',
     meta: { index: 2, },
     components:{
-      about: about,
+      about,
     },
   },
   {
     path: '/mental_equip',
     meta: { index: 3, },
     components:{
-      equip: equip,
+      equip,
     },
   },
 ]
