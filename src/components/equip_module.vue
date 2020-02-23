@@ -1,6 +1,6 @@
 <template>
 <!--考虑到之后还有很多地方需要对产品进行展示，干脆做成模板-->
-  <div id="equip">
+  <div class="equip">
     <p class="item">{{ static["title"] }}</p>
     <p class="itemEng">{{ static["titleEng"] }}</p>
     <div class="equip_content" >
@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style scoped>
-#equip {
+.equip {
   margin-top: 10%;
 }
 .item , .itemEng{

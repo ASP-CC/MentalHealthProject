@@ -4,6 +4,7 @@
     <pageHead id="head" :navList=navList></pageHead>
     <carousel id="carousel"></carousel>
     <router-view></router-view>
+    <high_tec></high_tec>
     <!--主体-->
     <div id="app">
       <transition :name="transitionName">
@@ -21,6 +22,7 @@
 <script>
  import pageHead from './components/Header'
  import carousel from './components/carousel'
+ import high_tec from './components/high-tec-equip-module'
  export default {
   name: "app",
   data(){
@@ -37,6 +39,7 @@
   components: {
     pageHead,
     carousel,
+    high_tec,
   },
   watch: {
     $route(to, from) {
