@@ -4,16 +4,20 @@
     <pageHead id="head" :navList=navList></pageHead>
     <carousel id="carousel"></carousel>
     <router-view></router-view>
-    <high_tec></high_tec>
     <!--主体-->
     <div id="app">
       <transition :name="transitionName">
         <router-view name="about"></router-view>
         <router-view name="equip"></router-view>
+
+                
       </transition>
     </div>
+    <router-view name="high_tec"></router-view>
+    <router-view name="displayer"></router-view>
+    <router-view name="classic_btn"></router-view>
 
-
+    
   <!--页脚-->
 
   </div>
@@ -22,7 +26,7 @@
 <script>
  import pageHead from './components/Header'
  import carousel from './components/carousel'
- import high_tec from './components/high-tec-equip-module'
+
  export default {
   name: "app",
   data(){
@@ -33,13 +37,13 @@
         {"首页": '/'},
         {"心理设备": '/mental_equip'},
         {"关于": '/about'},
+        {"试验": '/test'},
       ],
     }
   },
   components: {
     pageHead,
     carousel,
-    high_tec,
   },
   watch: {
     $route(to, from) {

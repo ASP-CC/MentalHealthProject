@@ -30,6 +30,15 @@ const routes = [
       equip,
     },
   },
+  {
+    path: '/test',
+    meta: { index: 4, },
+    components:{
+      classic_btn: () => import('../components/classic_btn'),
+      high_tec: () => import('../components/high_tec_equip_module'),
+      displayer: () => import('../components/info_displayer'),
+    }
+  }
 ]
 const router = new VueRouter({
   mode: 'history',

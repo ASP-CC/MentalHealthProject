@@ -101,7 +101,7 @@ p.itemEng {
   transition: all .8s;
 }
 .content > img:hover {
-  transform: scale(1.05);
+  transform: scale(1.2);
 }
 .content > a:not(.imgLink) {
   position: absolute;

@@ -56,7 +56,7 @@ p.high-itemEng {
   color: gray;
 }
 .high-content {
-    padding: 10% 10% 10% 5%;
+    padding: 5% 10% 10% 5%;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
