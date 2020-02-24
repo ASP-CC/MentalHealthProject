@@ -16,6 +16,9 @@
     <router-view name="high_tec"></router-view>
     <router-view name="displayer"></router-view>
     <router-view name="classic_btn"></router-view>
+    <keep-alive>
+      <router-view name="article"></router-view>
+    </keep-alive>
 
     
   <!--页脚-->

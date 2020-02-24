@@ -62,7 +62,9 @@ export default {
 <style scoped>
 .equip {
   margin-top: 10%;
+  position: relative;
 }
+
 .item , .itemEng{
   text-align: center;
 }
@@ -73,7 +75,11 @@ p.itemEng {
   font-size: .8em;
   font-style: italic;
   color: gray;
+  width: 1100px;
+  margin: auto;
+  background: url("../assets/img/navbg.png") no-repeat center;
 }
+
 .equip_content {
   display: flex;
   align-items: center;
@@ -116,7 +122,6 @@ p.itemEng {
   text-decoration: none;
   transform: translateX(-50%);
   left: 50%;
-  transition: all .8s;
   box-shadow: 0px 5px 5px grey;
   transition: all .5s;
 }

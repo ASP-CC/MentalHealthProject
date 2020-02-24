@@ -37,6 +37,7 @@ const routes = [
       classic_btn: () => import('../components/classic_btn'),
       high_tec: () => import('../components/high_tec_equip_module'),
       displayer: () => import('../components/info_displayer'),
+      article: () => import('../components/article'),
     }
   }
 ]
