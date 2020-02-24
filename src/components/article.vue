@@ -1,11 +1,10 @@
 <template>
     <div id="article">
-        <div id="pre_bg" ref="pre_bg" @click="cancelPre()">
-            <div ref="pre_arti" id="pre_arti">
-                <p></p>
-                <hr />
-                <div></div>
-            </div>
+        <div id="pre_bg" ref="pre_bg" @click="cancelPre()"></div>
+        <div ref="pre_arti" id="pre_arti">
+            <p></p>
+            <hr />
+            <div></div>
         </div>
         <div style="width:100%;">
             <h1>文章写录</h1>
@@ -36,7 +35,7 @@
                     </el-input>
             </div>
             <div id="btn_group">
-                <a class="sub_btn">提交</a>
+                <a class="sub_btn" @click="submit()">提交</a>
                 <a class="sub_btn" @click="pre()">预览</a>
             </div>
         </div>
@@ -88,6 +87,23 @@ export default {
             this.$refs.pre_arti.style.visibility = "hidden";
             bg.style.visibility = "hidden";
             this.$refs.pre_arti.style.transform = "translate(-50%, -200%)";
+        },
+        submit: function() {
+            this.$confirm("请确定是否提交文章？",{
+                confirmButtonText: "确定",
+                cancelButtenText: "取消",
+                center: true,
+            }).then(() => {
+                this.$message({
+                    type: "success",
+                    message: "提交成功",
+                });
+            }).catch(() => {
+                this.$message({
+                    type: "info",
+                    message:  "取消提交",
+                });
+            });
         }
     },
 }
@@ -178,6 +194,21 @@ label {
     background-color: rgb(193,199,208);
 }
 
+#pre_bg {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgb(132,143,160);
+    opacity: .5;
+    visibility: hidden;
+    transition: all .3;
+}
+
 #pre_arti {
     position: fixed;
     z-index: 110;
@@ -195,21 +226,6 @@ label {
     border-radius: 6px;
     visibility: hidden;
     transition: all .5s ease-out;
-}
-
-#pre_bg {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background-color: rgb(132,143,160);
-    opacity: .5;
-    visibility: hidden;
-    transition: all .3;
 }
 
 #pre_arti > p {
